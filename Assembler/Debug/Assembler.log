@@ -1,5 +1,0 @@
-﻿  main.cpp
-c:\users\колян\documents\visual studio 2015\projects\assembler\assembler\task1_10.h(34): warning C4405: sub: идентификатор является зарезервированным словом
-c:\users\колян\documents\visual studio 2015\projects\assembler\assembler\task1_10.h(73): warning C4405: sub: идентификатор является зарезервированным словом
-  Assembler.vcxproj -> C:\Users\колян\Documents\Visual Studio 2015\Projects\Assembler\Debug\Assembler.exe
-  Assembler.vcxproj -> C:\Users\колян\Documents\Visual Studio 2015\Projects\Assembler\Debug\Assembler.pdb (Partial PDB)
