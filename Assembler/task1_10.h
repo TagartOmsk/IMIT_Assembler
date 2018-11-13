@@ -35,7 +35,7 @@ namespace task1_10 {
 
 	// 10. Из исходной строки удалить все вхождения заданной последовательности символов. 
 	char* removeSubsequence() {
-		char *orig = readString(), *sub = readString(), *res;
+		char *orig = readString(), *sub = readString(), *res = 0;
 		__asm {
 			mov		eax, 1000
 			push	eax
@@ -52,45 +52,48 @@ namespace task1_10 {
 			mov		dh, [edi]; beginning of subsequence to remove
 			mov		dl, [edi]; buffer
 
-			CYCLE :
-			cmp[esi], 0
-				je		EXIT
-				cmp		dh, [esi]
-				je		CHECK
+		CYCLE :
+			cmp		byte ptr [esi], 0
+			je		EXIT
+			cmp		dh, [esi]
+			je		CHECK
 
-				BACK_TO_CYCLE :
+		BACK_TO_CYCLE :
 			mov		dl, [esi]
-				mov[eax], dl
-				inc		eax
-				inc		esi
-				jmp		CYCLE
+			mov		[eax], dl
+			inc		eax
+			inc		esi
+			jmp		CYCLE;
 
-				CHECK :
+		CHECK :
+			cmp		dl, 0;
+			je		EXIT
 			inc		ebx
-				mov		dl, [esi + ebx]
-				cmp		dl, [edi + ebx]
-				je		CHECK
-				jne		CHECK_ZERO
+			mov		dl, [esi + ebx]
+			cmp		dl, [edi + ebx]
+			jne		CHECK_ZERO
+			je		CHECK
+			
 
-				SKIP_SEQ :
+		SKIP_SEQ :
 			add		esi, ebx
-				xor		ebx, ebx
-				jmp		CYCLE
+			xor		ebx, ebx
+			jmp		CYCLE
 
-				CHECK_ZERO :
-			cmp[edi + ebx], 0
-				jne		BACK_TO_CYCLE
-				cmp[esi + ebx], 0
-				jne		SKIP_SEQ
+		CHECK_ZERO :
+			cmp		byte ptr [edi + ebx], 0
+			jne		BACK_TO_CYCLE
+			cmp		byte ptr [esi + ebx], 0
+			jne		SKIP_SEQ
 
-				EXIT :
-			mov[eax], 0
-				push	sub
-				call	free
-				add		esp, 4
-				push	orig
-				call	free
-				add		esp, 4
+		EXIT :
+			mov		byte ptr [eax], 0
+			push	sub
+			call	free
+			add		esp, 4
+			push	orig
+			call	free
+			add		esp, 4
 		}
 		return res;
 	}
