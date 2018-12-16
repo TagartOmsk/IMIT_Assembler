@@ -12,8 +12,10 @@
 консоли выполнять с помощью функций printf и scanf, вызов которых
 тоже должен происходить внутри ассемблерных вставок.*/
 
-namespace task1_10 {
-	char* readString() {
+namespace task1_10 
+{
+	char* readString() 
+	{
 		char *string;
 		const char *strLiteral = "%s", *anotherLiteral = " %[^\t\n]";
 		__asm {
@@ -34,8 +36,14 @@ namespace task1_10 {
 
 
 	// 10. Из исходной строки удалить все вхождения заданной последовательности символов. 
+<<<<<<< HEAD
+	char* removeSubsequence() 
+	{
+		char *orig = readString(), *sub = readString(), *res;
+=======
 	char* removeSubsequence() {
 		char *orig = readString(), *sub = readString(), *res = 0;
+>>>>>>> 0b46fca859c3ae577b77a9b89da700d58306ec0d
 		__asm {
 			mov		eax, 1000
 			push	eax
