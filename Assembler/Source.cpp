@@ -1,5 +1,6 @@
 ﻿#include <stdlib.h>
 #include <stdio.h>
+#include <cmath>
 #include "task1_10.h"
 #include "task2_10.h"
 #include "task3_10.h"
@@ -25,13 +26,9 @@ int main() {
 	//printf("just read: %s\n", task1_10::readString());
 	//printf("just read: %s\n", task1_10::readString());
 	//printf("%s\n", task1_10::removeSubsequence());
-	const int ARR_SIZE = 4;
+	/*const int ARR_SIZE = 4;
 	task2_10::BookCard *cardList = new task2_10::BookCard[ARR_SIZE];
-	// char* man = 0, book = 0;
-	/*for (int i = 0; i < ARR_SIZE; i++) {
-		strcpy_s(cardList[i].Title, task2_10::SIZE, task1_10::readString());
-		strcpy_s(cardList[i].Author, task2_10::SIZE, task1_10::readString());
-	}*/
+	
 	strcpy_s(cardList[0].Title, task2_10::LINE_SIZE, "Call of Chtulhu");
 	strcpy_s(cardList[0].Author, task2_10::LINE_SIZE, "H.Lovecraft");
 	strcpy_s(cardList[1].Title, task2_10::LINE_SIZE, "Call of Duty");
@@ -47,7 +44,11 @@ int main() {
     {
         printf("Author: %s\n", result[i].Author);
         printf("Title: %s\n\n", result[i].Title);
-    }
+    }*/
+
+	printf("%.12f\n", task3_10::getRoots(0.01, 2, std::log, 0.001));	
+	//printf("%.12f\n", std::log(0.003));
+	//printf("%.12f\n", std::log(3));
 	system("pause");
 	return 0;
 }
